@@ -3,8 +3,10 @@
   <id>com.blackmagicdesign.ResolveStudio</id>
   <launchable type="desktop-id">com.blackmagicdesign.ResolveStudio.desktop</launchable>
   <name>Davinci Resolve Studio</name>
-  <developer_name>Blackmagic Design</developer_name>
   <summary>Professional Editing, Color, Effects and Audio Post!</summary>
+  <developer id="com.blackmagicdesign">
+    <name>Blackmagic Design</name>
+  </developer>
   <url type="homepage">https://www.blackmagicdesign.com/products/davinciresolve</url>
   <url type="help">https://www.blackmagicdesign.com/support/</url>
   <project_license>LicenseRef-proprietary=https://raw.githubusercontent.com/flat-software/com.blackmagicdesign.ResolveStudio/1782db747f8dceb6a567a4374c8c5acd1967e091/resolve_license.txt</project_license>
@@ -16,9 +18,9 @@
 
     <p><strong>Blackmagic Cloud:</strong> DaVinci Resolve 19 features a whole new way of remote collaboration using cloud based workflows! You can host project libraries using Blackmagic Cloud and collaborate on the same timeline, in real time with multiple users all over the world.</p>
 
-    <p><strong>Cut Page Editing:</strong> Designed for projects with tight deadlines that need to be turned around quickly, the cut page is designed for editing speed. The sync bin and source overwrite tools are the fastest way to edit multi cam programs. You can work faster than ever with dual timelines, source tape and smart editing tools. The cut page has new broadcast replay tools for live multi camera broadcast editing, playout and replay with speed control.</p>
-
     <p><strong>Professional Editing:</strong> Perfect for both offline editorial and online finishing. You get every editing and trimming tool imaginable, stacked and tabbed timelines, multi cam, closed caption and subtitling tools, on screen annotations, faster project loading, 2D and 3D title templates, and dozens of other new features!</p>
+
+    <p><strong>Cut Page Editing:</strong> Designed for projects with tight deadlines that need to be turned around quickly, the cut page is designed for editing speed. The sync bin and source overwrite tools are the fastest way to edit multi cam programs. You can work faster than ever with dual timelines, source tape and smart editing tools. The cut page has new broadcast replay tools for live multi camera broadcast editing, playout and replay with speed control.</p>
 
     <p><strong>Advanced Color Correction:</strong> Hollywood’s favorite color corrector keeps getting better! You get advanced HDR primary color grading tools with unlimited secondary corrections, power windows and tracking along with a new AI generated object mask, depth map, fast noise and surface tracker, AI camera gyro stabilization, super scaling, dozens of Resolve FX plugins and more.</p>
 
