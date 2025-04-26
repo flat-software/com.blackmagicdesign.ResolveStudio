@@ -1,0 +1,14 @@
+{
+  "name": "downloader",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "ts": "tsc --watch",
+    "start": "node --experimental-transform-types ./src/index.ts"
+  },
+  "devDependencies": {
+    "prettier": "3.5.3",
+    "typescript": "5.8.3"
+  }
+}

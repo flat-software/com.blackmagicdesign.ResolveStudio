@@ -2,23 +2,9 @@
 Type=Application
 Name=Davinci Resolve Studio
 Comment=Professional Editing, Color, Effects and Audio Post!
-Exec=com.blackmagicdesign.ResolveStudio
+Exec=com.blackmagicdesign.ResolveStudio %U
 Icon=com.blackmagicdesign.ResolveStudio
+MimeType=application/x-resolveproj;
 Categories=AudioVideo;Audio;Video;
-Actions=GetLogs;PanelSetup;RAWPlayer;RAWSpeedTest;
-
-[Desktop Action GetLogs]
-Name=Collect logs
-Exec=/app/scripts/script.getlogs.v4
-
-[Desktop Action PanelSetup]
-Name=Resolve Panels Setup
-Exec="/app/DaVinci Resolve Panels Setup/DaVinci Resolve Panels Setup"
-
-[Desktop Action RAWPlayer]
-Name=Blackmagic RAW Player
-Exec=/app/BlackmagicRAWPlayer/BlackmagicRAWPlayer
-
-[Desktop Action RAWSpeedTest]
-Name=Blackmagic RAW Speed Test
-Exec=/app/BlackmagicRAWSpeedTest/BlackmagicRAWSpeedTest
+StartupNotify=true
+PrefersNonDefaultGPU=true
