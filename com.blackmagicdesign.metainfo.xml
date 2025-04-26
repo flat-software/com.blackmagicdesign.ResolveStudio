@@ -62,6 +62,6 @@
     <display_length compare="ge">768</display_length>
   </requires>
   <releases>
-    <release version="20.0.0-2" date="2025-04-23" />
+    <release version="20.0.0-b2" date="2025-04-23" />
   </releases>
 </component>

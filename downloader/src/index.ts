@@ -1,5 +1,9 @@
 import * as fs from "node:fs/promises";
 
+//
+// Model and constants.
+//
+
 interface Version {
   major: number;
   minor: number;
@@ -10,6 +14,7 @@ interface Version {
   downloadId: string;
 }
 
+const downloadedFilePath = "./resolve.zip";
 const printProgressResolution = 500 * 1024; // 1MB;
 
 const headers = {
@@ -26,10 +31,23 @@ const headers = {
     "https://www.blackmagicdesign.com/support/download/77ef91f67a9e411bbbe299e595b4cfcc/Linux",
 };
 
+//
+// Helpers.
+//
+
 function formatVersion(version: Version) {
   const {major, minor, patch, build, beta} = version;
   const betaString = beta ? `Beta ${beta}` : "";
   return `${major}.${minor}.${patch} Build ${build} ${betaString}`;
+}
+
+async function fileExists(path: string) {
+  try {
+    await fs.access(path, fs.constants.F_OK);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 async function getLatestVersion(): Promise<Version | undefined> {
@@ -79,6 +97,7 @@ async function getLatestVersion(): Promise<Version | undefined> {
 
 async function downloadVersion(
   version: Version,
+  writeToPath: string,
   onProgress: (loaded: number, total: number) => void
 ) {
   const url = `https://www.blackmagicdesign.com/api/register/us/download/${version.downloadId}`;
@@ -148,9 +167,20 @@ async function downloadVersion(
     },
   });
 
-  await fs.writeFile("./resolve.zip", progressStream);
+  await fs.writeFile(writeToPath, progressStream);
 }
 
+//
+// Program flow.
+//
+
+// Check if the file was already downloaded.
+if (await fileExists(downloadedFilePath)) {
+  console.log("Resolve was already downloaded.");
+  process.exit(0);
+}
+
+// Otherwise, check the current version.
 const version = await getLatestVersion();
 if (!version) {
   throw new Error("Latest version not found.");
@@ -158,6 +188,7 @@ if (!version) {
 
 console.log(`Found version: ${formatVersion(version)}`);
 
+// And download it.
 const onProgress = (loaded: number, total: number) => {
   const progressPercent = Math.round((loaded / total) * 100)
     .toString()
@@ -173,5 +204,5 @@ const onProgress = (loaded: number, total: number) => {
   );
 };
 
-await downloadVersion(version, onProgress);
+await downloadVersion(version, downloadedFilePath, onProgress);
 console.log("Download complete!");
