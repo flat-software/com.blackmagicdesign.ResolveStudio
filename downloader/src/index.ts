@@ -10,6 +10,8 @@ interface Version {
   downloadId: string;
 }
 
+const printProgressResolution = 500 * 1024; // 1MB;
+
 const headers = {
   "accept": "application/json, text/plain, */*",
   "origin": "https://www.blackmagicdesign.com",
@@ -23,6 +25,12 @@ const headers = {
   "referer":
     "https://www.blackmagicdesign.com/support/download/77ef91f67a9e411bbbe299e595b4cfcc/Linux",
 };
+
+function formatVersion(version: Version) {
+  const {major, minor, patch, build, beta} = version;
+  const betaString = beta ? `Beta ${beta}` : "";
+  return `${major}.${minor}.${patch} Build ${build} ${betaString}`;
+}
 
 async function getLatestVersion(): Promise<Version | undefined> {
   const response = await fetch(
@@ -69,7 +77,10 @@ async function getLatestVersion(): Promise<Version | undefined> {
   };
 }
 
-async function downloadVersion(version: Version) {
+async function downloadVersion(
+  version: Version,
+  onProgress: (loaded: number, total: number) => void
+) {
   const url = `https://www.blackmagicdesign.com/api/register/us/download/${version.downloadId}`;
   const downloadUrlResponse = await fetch(url, {
     method: "POST",
@@ -97,14 +108,47 @@ async function downloadVersion(version: Version) {
   }
 
   const downloadResponse = await fetch(downloadUrl);
-  if (!downloadResponse.ok || !downloadResponse.body) {
+  const downloadBody = downloadResponse.body as ReadableStream<Uint8Array>;
+  if (!downloadResponse.ok || !downloadBody) {
     throw new Error("Download request failed.");
   }
 
-  const contentLength = Number(downloadResponse.headers.get("content-length"));
-  console.log("Downloading...", contentLength);
+  let loadedBytes = 0;
+  const totalBytes = Number(downloadResponse.headers.get("content-length"));
 
-  await fs.writeFile("./resolve.zip", downloadResponse.body);
+  onProgress(loadedBytes, totalBytes);
+
+  let lastLoadedBytes = 0;
+  const maybeOnProgress = () => {
+    if (loadedBytes - lastLoadedBytes < printProgressResolution) {
+      return;
+    }
+
+    lastLoadedBytes = loadedBytes;
+    onProgress(loadedBytes, totalBytes);
+  };
+
+  const progressStream = new ReadableStream({
+    start(controller) {
+      const reader = downloadBody.getReader();
+
+      const read = async () => {
+        const {done, value} = await reader.read();
+        if (done) {
+          controller.close();
+          return;
+        }
+
+        loadedBytes += value.byteLength;
+        maybeOnProgress();
+        controller.enqueue(value);
+        read();
+      };
+      read();
+    },
+  });
+
+  await fs.writeFile("./resolve.zip", progressStream);
 }
 
 const version = await getLatestVersion();
@@ -112,4 +156,22 @@ if (!version) {
   throw new Error("Latest version not found.");
 }
 
-await downloadVersion(version);
+console.log(`Found version: ${formatVersion(version)}`);
+
+const onProgress = (loaded: number, total: number) => {
+  const progressPercent = Math.round((loaded / total) * 100)
+    .toString()
+    .padStart(3, " ");
+
+  const numberLength = total.toString().length;
+  const loadedBytesString = loaded.toString().padStart(numberLength, " ");
+
+  process.stdout.clearLine(0);
+  process.stdout.cursorTo(0);
+  process.stdout.write(
+    `\rLoaded ${loadedBytesString} of ${total}. ${progressPercent}%`
+  );
+};
+
+await downloadVersion(version, onProgress);
+console.log("Download complete!");
