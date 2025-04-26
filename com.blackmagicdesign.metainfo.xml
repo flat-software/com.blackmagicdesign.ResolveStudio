@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <component type="desktop-application">
   <id>com.blackmagicdesign.ResolveStudio</id>
+  <launchable type="desktop-id">com.blackmagicdesign.ResolveStudio.desktop</launchable>
   <name>Davinci Resolve Studio</name>
   <developer_name>Blackmagic Design</developer_name>
   <summary>Professional Editing, Color, Effects and Audio Post!</summary>
   <url type="homepage">https://www.blackmagicdesign.com/products/davinciresolve</url>
   <url type="help">https://www.blackmagicdesign.com/support/</url>
   <project_license>LicenseRef-proprietary=https://raw.githubusercontent.com/flat-software/com.blackmagicdesign.ResolveStudio/1782db747f8dceb6a567a4374c8c5acd1967e091/resolve_license.txt</project_license>
-  <metadata_license>MIT</metadata_license>
-  <launchable type="desktop-id">com.blackmagicdesign.ResolveStudio.desktop</launchable>
+  <metadata_license>CC0-1.0</metadata_license>
   <description>
     <p>Hollywood’s most powerful tools for professional editing, color correction, audio post and visual effects!</p>
 
@@ -54,6 +54,11 @@
     <content_attribute id="social-chat">moderate</content_attribute>
     <content_attribute id="social-info">moderate</content_attribute>
   </content_rating>
+  <requires>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <display_length compare="ge">768</display_length>
+  </requires>
   <releases>
     <release version="20.0.0-2" date="2025-04-23" />
   </releases>
