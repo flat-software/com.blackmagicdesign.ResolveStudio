@@ -1,10 +1,10 @@
 /** @type {import("prettier").Config} */
 const config = {
-  singleQuote: false,
-  trailingComma: "all",
-  tabWidth: 2,
-  printWidth: 120,
-  semi: true,
+  printWidth: 80,
+  bracketSpacing: false,
+  arrowParens: "avoid",
+  trailingComma: "es5",
+  plugins: ["prettier-plugin-organize-imports"],
   quoteProps: "consistent",
 };
 

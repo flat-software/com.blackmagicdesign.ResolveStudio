@@ -8,7 +8,9 @@
     "start": "node --experimental-transform-types ./src/index.ts"
   },
   "devDependencies": {
+    "@types/node": "22.15.2",
     "prettier": "3.5.3",
+    "prettier-plugin-organize-imports": "4.1.0",
     "typescript": "5.8.3"
   }
 }
