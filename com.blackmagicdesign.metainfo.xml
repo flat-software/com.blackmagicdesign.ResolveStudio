@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component type="desktop-application">
+  <id>com.blackmagicdesign.ResolveStudio</id>
+  <name>Davinci Resolve Studio</name>
+  <developer_name>Blackmagic Design</developer_name>
+  <summary>Professional Editing, Color, Effects and Audio Post!</summary>
+  <url type="homepage">https://www.blackmagicdesign.com/products/davinciresolve</url>
+  <url type="help">https://www.blackmagicdesign.com/support/</url>
+  <project_license>LicenseRef-proprietary=https://raw.githubusercontent.com/flat-software/com.blackmagicdesign.ResolveStudio/1782db747f8dceb6a567a4374c8c5acd1967e091/resolve_license.txt</project_license>
+  <metadata_license>MIT</metadata_license>
+  <launchable type="desktop-id">com.blackmagicdesign.ResolveStudio.desktop</launchable>
+  <description>
+    <p>Hollywood’s most powerful tools for professional editing, color correction, audio post and visual effects!</p>
+
+    <p>DaVinci Resolve Studio 20 is the world’s only solution that combines professional 8K editing, color correction, visual effects and audio post production all in one software tool! You can instantly move between editing, color, effects, and audio with a single click. Whether you’re an individual artist, or part of a large team, it’s easy to see why DaVinci Resolve is the standard for high end post production and finishing on more Hollywood feature films, television shows and commercials than any other software.</p>
+
+    <p><strong>Blackmagic Cloud:</strong> DaVinci Resolve 19 features a whole new way of remote collaboration using cloud based workflows! You can host project libraries using Blackmagic Cloud and collaborate on the same timeline, in real time with multiple users all over the world.</p>
+
+    <p><strong>Cut Page Editing:</strong> Designed for projects with tight deadlines that need to be turned around quickly, the cut page is designed for editing speed. The sync bin and source overwrite tools are the fastest way to edit multi cam programs. You can work faster than ever with dual timelines, source tape and smart editing tools. The cut page has new broadcast replay tools for live multi camera broadcast editing, playout and replay with speed control.</p>
+
+    <p><strong>Professional Editing:</strong> Perfect for both offline editorial and online finishing. You get every editing and trimming tool imaginable, stacked and tabbed timelines, multi cam, closed caption and subtitling tools, on screen annotations, faster project loading, 2D and 3D title templates, and dozens of other new features!</p>
+
+    <p><strong>Advanced Color Correction:</strong> Hollywood’s favorite color corrector keeps getting better! You get advanced HDR primary color grading tools with unlimited secondary corrections, power windows and tracking along with a new AI generated object mask, depth map, fast noise and surface tracker, AI camera gyro stabilization, super scaling, dozens of Resolve FX plugins and more.</p>
+
+    <p><strong>Fusion Visual Effects:</strong> Fusion gives you a true 3D workspace with over 250 tools for creating feature film quality visual effects and stunning motion graphics! Now you import and manipulate USD vfx, can create sophisticated composites, use vector paint, animate titles, add 3D particles, key, rotoscope and more, all inside of DaVinci Resolve 19!</p>
+
+    <p><strong>Fairlight Audio Post:</strong> Fairlight is a full blown digital audio workstation with high performance multi track sample level editing and mixing! You get ADR tools, support for sound libraries, audio and video scrollers for quickly syncing sound, a scrolling timeline, normalization and Fairlight FX plugins including a hum remover, de-esser, reverb and more. DaVinci Resolve Studio 19 also includes support for generating and editing Dolby Atmos® home packages!</p>
+
+    <p>Upgrade from the free to the paid version of DaVinci Resolve Studio 19 and you also get IntelliTrack AI, voice isolation, film look creator, ColorSlice, automatic facial recognition for face refinement tools, temporal and spatial noise reduction, photorealistic optical quality motion effects, lens flare, lens blur, aperture diffraction, film damage or film grain Resolve FX. DaVinci Resolve 19 Studio also includes lens distortion correction, high quality de-interlacing, HDR (High Dynamic Range) grading with Dolby Vision® support, stereoscopic 3D tools, remote rendering, multiuser collaboration with chat and more.</p>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/flat-software/com.blackmagicdesign.ResolveStudio/1782db747f8dceb6a567a4374c8c5acd1967e091/screenshots/screenshot1.png</image>
+      <caption>Edit: The World’s Fastest Professional Editing Software!</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/flat-software/com.blackmagicdesign.ResolveStudio/1782db747f8dceb6a567a4374c8c5acd1967e091/screenshots/screenshot2.png</image>
+      <caption>Cut: Next Generation Editing</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/flat-software/com.blackmagicdesign.ResolveStudio/1782db747f8dceb6a567a4374c8c5acd1967e091/screenshots/screenshot3.png</image>
+      <caption>Color: Hollywood's Most Advanced Color Corrector</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/flat-software/com.blackmagicdesign.ResolveStudio/1782db747f8dceb6a567a4374c8c5acd1967e091/screenshots/screenshot4.png</image>
+      <caption>Fairlight: Professional Tools for Audio Post</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/flat-software/com.blackmagicdesign.ResolveStudio/1782db747f8dceb6a567a4374c8c5acd1967e091/screenshots/screenshot5.png</image>
+      <caption>Fusion: Hollywood's Secret Weapon!</caption>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1">
+    <content_attribute id="social-chat">moderate</content_attribute>
+    <content_attribute id="social-info">moderate</content_attribute>
+  </content_rating>
+  <releases>
+    <release version="20.0.0-2" date="2025-04-23" />
+  </releases>
+</component>
