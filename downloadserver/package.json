@@ -7,6 +7,10 @@
     "ts": "tsc --watch",
     "start": "node --experimental-transform-types ./src/index.ts"
   },
+  "dependencies": {
+    "@hono/node-server": "1.14.1",
+    "hono": "4.7.7"
+  },
   "devDependencies": {
     "@types/node": "22.15.2",
     "prettier": "3.5.3",
