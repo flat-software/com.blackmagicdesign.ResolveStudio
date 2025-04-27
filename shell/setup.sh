@@ -14,8 +14,8 @@ find squashfs-root -type f -exec chmod a+r,u+w {} \;
 find squashfs-root -type d -exec chmod a+rx,u+w {} \;
 
 # Create directories.
-mkdir -p ${PREFIX}/easyDCP ${PREFIX}/scripts ${PREFIX}/share ${PREFIX}/Fairlight ${PREFIX}/share/applications ${PREFIX}/share/icons/hicolor/128x128/apps ${PREFIX}/share/icons/hicolor/256x256/apps
-chmod 755 ${PREFIX}/easyDCP ${PREFIX}/scripts ${PREFIX}/share ${PREFIX}/Fairlight ${PREFIX}/share/applications ${PREFIX}/share/icons/hicolor/128x128/apps ${PREFIX}/share/icons/hicolor/256x256/apps
+mkdir -p ${PREFIX} ${PREFIX}/easyDCP ${PREFIX}/scripts ${PREFIX}/share ${PREFIX}/Fairlight
+chmod 755 ${PREFIX}/easyDCP ${PREFIX}/scripts ${PREFIX}/share ${PREFIX}/Fairlight
 
 # Copy objects.
 cp -rp squashfs-root/bin ${PREFIX}/
@@ -36,6 +36,7 @@ rm squashfs-root/libs/libgmodule*
 rm squashfs-root/libs/libgobject*
 # Can we use system Qt5? Not yet.
 # rm squashfs-root/libs/libQt5*
+
 cp -rp squashfs-root/libs ${PREFIX}/
 
 cp -rp squashfs-root/LUT ${PREFIX}/

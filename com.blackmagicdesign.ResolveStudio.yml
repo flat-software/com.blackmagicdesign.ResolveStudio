@@ -34,7 +34,6 @@ finish-args:
   - --filesystem=/run/media
   - --filesystem=/mnt
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
-  - --env=LD_PRELOAD=/lib/x86_64-linux-gnu/libglib-2.0.so.0 /lib/x86_64-linux-gnu/libgio-2.0.so.0 /lib/x86_64-linux-gnu/libgmodule-2.0.so.0 /lib/x86_64-linux-gnu/libgobject-2.0.so.0
 
 modules:
   # Dependencies.
@@ -59,28 +58,23 @@ modules:
         url: https://github.com/oneapi-src/oneTBB
         tag: v2022.1.0
 
-  # - name: libcxx
-  #   buildsystem: cmake-ninja
-  #   builddir: true
-  #   subdir: runtimes
-  #   config-opts:
-  #     - -DCMAKE_BUILD_TYPE=Release
-  #     - -DCMAKE_C_COMPILER=clang
-  #     - -DCMAKE_CXX_COMPILER=clang++
-  #     - -DLLVM_ENABLE_RUNTIMES=libcxx;libcxxabi
-  #     - -DLLVM_TARGETS_TO_BUILD=X86
-  #     - -Wno-dev
-  #   sources:
-  #     - type: git
-  #       url: https://github.com/llvm/llvm-project.git
-  #       tag: llvmorg-17.0.6
-
   # Resolve.
   - name: resolve
     buildsystem: simple
     build-commands:
-      # - install -Dm644 logo.png /app/share/icons/hicolor/scalable/apps/com.blackmagic.ResolveStudio.png
-      # - ./run_complete_installation.sh --studio
+      - pwd
+      - chmod +x setup.sh
+      - ./setup.sh
+
+      - |
+        for s in 128; do
+          install -Dm644 ${s}.png /app/share/icons/hicolor/${s}x${s}/apps/${FLATPAK_ID}.png
+        done
+
+      - install -Dm644 ${FLATPAK_ID}.desktop -t /app/share/applications
+      - install -Dm644 ${FLATPAK_ID}.metainfo.xml -t /app/share/metainfo
+      - install -Dm755 resolve.sh /app/bin/${FLATPAK_ID}
+
     sources:
       - type: archive
         dest-filename: resolve.zip
@@ -92,32 +86,17 @@ modules:
           version-query: .url
           url-query: .url
 
-      # - type: file
-      #   path: python/build_metainfo.py
+      - type: file
+        path: shell/setup.sh
 
-      # - type: file
-      #   path: python/main.py
+      - type: file
+        path: shell/resolve.sh
 
-      # - type: file
-      #   path: python/resolve_download.py
+      - type: file
+        path: com.blackmagicdesign.ResolveStudio.desktop
 
-      # - type: file
-      #   path: python/version.py
+      - type: file
+        path: com.blackmagicdesign.ResolveStudio.metainfo.xml
 
-      # - type: file
-      #   path: shell/setup_resolve.sh
-
-      # - type: file
-      #   path: shell/setup_directories.sh
-
-      # - type: file
-      #   path: shell/resolve.sh
-
-      # - type: file
-      #   path: run_complete_installation.sh
-
-      # - type: file
-      #   path: requirements.txt
-
-      # - type: file
-      #   path: logo.png
+      - type: file
+        path: icons/128.png
