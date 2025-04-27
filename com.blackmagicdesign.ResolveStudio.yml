@@ -2,10 +2,15 @@ app-id: com.blackmagicdesign.ResolveStudio
 runtime: org.freedesktop.Platform
 runtime-version: "24.08"
 sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.llvm18
 command: com.blackmagicdesign.ResolveStudio
 tags:
   - proprietary
 separate-locales: false
+build-options:
+  append-path: /usr/lib/sdk/llvm18/bin
+
 finish-args:
   - --share=ipc
   - --share=network
@@ -45,6 +50,7 @@ modules:
 
   - name: onetbb
     buildsystem: cmake-ninja
+    builddir: true
     config-opts:
       - -Wno-dev
       - -DTBB_TEST=OFF
@@ -53,56 +59,65 @@ modules:
         url: https://github.com/oneapi-src/oneTBB
         tag: v2022.1.0
 
-  - name: libcxx
-    buildsystem: cmake-ninja
-    builddir: true
-    subdir: runtimes
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DLLVM_ENABLE_RUNTIMES=libcxx;libcxxabi
-      - -DLLVM_TARGETS_TO_BUILD=X86
-      - -Wno-dev
-    sources:
-      - type: git
-        url: https://github.com/llvm/llvm-project.git
-        tag: llvmorg-20.1.3
+  # - name: libcxx
+  #   buildsystem: cmake-ninja
+  #   builddir: true
+  #   subdir: runtimes
+  #   config-opts:
+  #     - -DCMAKE_BUILD_TYPE=Release
+  #     - -DCMAKE_C_COMPILER=clang
+  #     - -DCMAKE_CXX_COMPILER=clang++
+  #     - -DLLVM_ENABLE_RUNTIMES=libcxx;libcxxabi
+  #     - -DLLVM_TARGETS_TO_BUILD=X86
+  #     - -Wno-dev
+  #   sources:
+  #     - type: git
+  #       url: https://github.com/llvm/llvm-project.git
+  #       tag: llvmorg-17.0.6
 
   # Resolve.
   - name: resolve
     buildsystem: simple
-    build-options:
-      build-args:
-        - --share=network
     build-commands:
-      - install -Dm644 logo.png /app/share/icons/hicolor/scalable/apps/com.blackmagic.ResolveStudio.png
-      - ./run_complete_installation.sh --studio
+      # - install -Dm644 logo.png /app/share/icons/hicolor/scalable/apps/com.blackmagic.ResolveStudio.png
+      # - ./run_complete_installation.sh --studio
     sources:
-      - type: file
-        path: python/build_metainfo.py
+      - type: archive
+        dest-filename: resolve.zip
+        url: http://localhost:5173/download/571804036ff14ab18c6a036c41f9bb50
+        sha256: 5fb4614834c5a9f990afa977b7d5dcd2675c26529bc09a468e7cd287bbaf5097
+        x-checker-data:
+          type: json
+          url: http://localhost:5173/version/stable
+          version-query: .url
+          url-query: .url
 
-      - type: file
-        path: python/main.py
+      # - type: file
+      #   path: python/build_metainfo.py
 
-      - type: file
-        path: python/resolve_download.py
+      # - type: file
+      #   path: python/main.py
 
-      - type: file
-        path: python/version.py
+      # - type: file
+      #   path: python/resolve_download.py
 
-      - type: file
-        path: shell/setup_resolve.sh
+      # - type: file
+      #   path: python/version.py
 
-      - type: file
-        path: shell/setup_directories.sh
+      # - type: file
+      #   path: shell/setup_resolve.sh
 
-      - type: file
-        path: shell/resolve.sh
+      # - type: file
+      #   path: shell/setup_directories.sh
 
-      - type: file
-        path: run_complete_installation.sh
+      # - type: file
+      #   path: shell/resolve.sh
 
-      - type: file
-        path: requirements.txt
+      # - type: file
+      #   path: run_complete_installation.sh
 
-      - type: file
-        path: logo.png
+      # - type: file
+      #   path: requirements.txt
+
+      # - type: file
+      #   path: logo.png

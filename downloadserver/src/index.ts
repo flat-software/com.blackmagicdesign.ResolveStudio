@@ -1,10 +1,12 @@
 import {serve} from "@hono/node-server";
 import {Hono} from "hono";
 import {HTTPException} from "hono/http-exception";
+import {logger} from "hono/logger";
 import {getDownload, getLatestVersion} from "./fetch.ts";
 import {Branch} from "./model.ts";
 
 const app = new Hono();
+app.use(logger());
 
 app.get("/version/:branch", async c => {
   const branch = c.req.param("branch") === "beta" ? Branch.BETA : Branch.STABLE;
@@ -13,7 +15,9 @@ app.get("/version/:branch", async c => {
     throw new HTTPException(404, {message: "Version not found."});
   }
 
-  return c.text(`http://localhost:5173/download/${latestVersion?.downloadId}`);
+  return c.json({
+    url: `http://localhost:5173/download/${latestVersion?.downloadId}`,
+  });
 });
 
 app.get("/download/:downloadId", async c => {
