@@ -15,13 +15,15 @@ jobs:
     container:
       image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-24.08
       options: --privileged
+      volumes:
+        - /:/hostfs
 
     steps:
       - name: Maximize build space
-        uses: ublue-os/remove-unwanted-software@v8
-        with:
-          use-sudo: false
-          remove-docker-images: false
+        run: |
+          echo $AGENT_TOOLSDIRECTORY
+          rm -rf "/hostfs${AGENT_TOOLSDIRECTORY}"
+          df -h
 
       - name: Set dynamic env vars
         run: |
