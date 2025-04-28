@@ -25,8 +25,8 @@ jobs:
         run: |
           echo "Before:"
           df -h
-          rm -rf /hostfs/usr/local/lib/android
           rm -rf /hostfs/usr/share/dotnet
+          rm -rf /hostfs/usr/local/lib/android
           rm -rf /hostfs/opt/ghc
           rm -rf /hostfs/usr/local/.ghcup
           rm -rf /hostfs/opt/hostedtoolcache/CodeQL
@@ -76,7 +76,12 @@ jobs:
         with:
           branch: stable
           manifest-path: ${{ env.REPO_NAME }}.yml
+          cache: false
+          restore-cache: false
           build-bundle: false
+
+      - name: Clear
+        run: rm -rf .flatpak-builder
 
       - name: Build image
         run: |
