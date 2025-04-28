@@ -14,6 +14,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23
 
       - name: Set dynamic env vars
         run: |
