@@ -21,8 +21,8 @@ jobs:
     steps:
       - name: Maximize build space
         run: |
-          echo $AGENT_TOOLSDIRECTORY
-          rm -rf "/hostfs${AGENT_TOOLSDIRECTORY}"
+          echo ${runner.tool_cache}
+          rm -rf "/hostfs${runner.tool_cache}"
           df -h
 
       - name: Set dynamic env vars
