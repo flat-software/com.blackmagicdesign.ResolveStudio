@@ -25,11 +25,14 @@ jobs:
         env:
           RUNNER_TOOL_CACHE: ${{ runner.tool_cache }}
         run: |
+          echo "Before:"
           df -h
-          rm -rfv /hostfs/usr/local/lib/android
-          rm -rfv /hostfs/opt/ghc
-          rm -rfv /hostfs/usr/local/.ghcup
-          rm -rfv /hostfs/opt/hostedtoolcache
+          rm -rf /hostfs/usr/local/lib/android
+          rm -rf /hostfs/usr/share/dotnet
+          rm -rf /hostfs/opt/ghc
+          rm -rf /hostfs/usr/local/.ghcup
+          rm -rf /hostfs/opt/hostedtoolcache
+          echo "After:"
           df -h
 
       # - name: Set dynamic env vars
