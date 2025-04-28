@@ -101,8 +101,6 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Push
-        env:
-          REGCTL_LOG: debug
         run: |
           echo "Update index."
           jq '.manifests[0].annotations["org.opencontainers.image.ref.name"] = "repo/$REPO_NAME_LOWER:stable"' ./image/index.json > tmp.json
@@ -112,7 +110,7 @@ jobs:
           version=$(xmllint --xpath 'string(//release[1]/@version)' $REPO_NAME.metainfo.xml)
 
           echo "Copy latest."
-          regctl image copy ocidir://image:stable "artifacts.flat.software/flatpaks/$REPO_NAME_LOWER:latest"
+          regctl image copy ocidir://image:stable "artifacts.flat.software/flatpaks/$REPO_NAME_LOWER:latest" -v debug
 
           echo "Copy stable."
           regctl image copy ocidir://image:stable "artifacts.flat.software/flatpaks/$REPO_NAME_LOWER:stable"
