@@ -20,9 +20,11 @@ jobs:
 
     steps:
       - name: Maximize build space
+        env:
+          RUNNER_TOOL_CACHE: ${{ runner.tool_cache }}
         run: |
-          echo ${runner.tool_cache}
-          rm -rf "/hostfs${runner.tool_cache}"
+          echo $RUNNER_TOOL_CACHE
+          rm -rf "/hostfs$RUNNER_TOOL_CACHE"
           df -h
 
       - name: Set dynamic env vars
