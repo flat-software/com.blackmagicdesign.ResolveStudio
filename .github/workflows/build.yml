@@ -85,8 +85,8 @@ jobs:
           df -h
           pwd
           ls
-          rm -rfv .flatpak-builder
-          rm -rfv build
+          rm -rf .flatpak-builder
+          rm -rf build
 
       - name: Build image
         run: |
@@ -101,6 +101,8 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Push
+        env:
+          REGCTL_LOG: debug
         run: |
           echo "Update index."
           jq '.manifests[0].annotations["org.opencontainers.image.ref.name"] = "repo/$REPO_NAME_LOWER:stable"' ./image/index.json > tmp.json
