@@ -31,7 +31,7 @@ jobs:
           rm -rf /hostfs/usr/share/dotnet
           rm -rf /hostfs/opt/ghc
           rm -rf /hostfs/usr/local/.ghcup
-          rm -rf /hostfs/opt/hostedtoolcache
+          rm -rf /hostfs/opt/hostedtoolcache/CodeQL
           echo "After:"
           df -h
 
