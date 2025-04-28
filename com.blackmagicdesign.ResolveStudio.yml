@@ -17,7 +17,7 @@ finish-args:
   - --socket=pulseaudio
   - --socket=wayland
   - --socket=x11
-  - --device=all
+  - --device=dri
   # USB license key.
   - --device=usb
   - --usb=vnd:096e
@@ -26,14 +26,18 @@ finish-args:
   - --filesystem=xdg-music
   - --filesystem=xdg-pictures
   - --filesystem=xdg-videos
-  # Writeable locations.
-  - --persist=Documents
   # Removable media and network shares.
+  - --filesystem=xdg-run/gvfs
   - --filesystem=/media
   - --filesystem=/run/media
   - --filesystem=/mnt
+  # Writeable locations.
+  - --persist=Documents
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
   - --env=DRI_PRIME=1
+  - --env=__VK_LAYER_NV_optimus=NVIDIA_only
+  - --env=__NV_PRIME_RENDER_OFFLOAD=1
+  - --env=__GLX_VENDOR_LIBRARY_NAME=nvidia
 
 modules:
   # Dependencies.
@@ -67,8 +71,8 @@ modules:
       - ./setup.sh
 
       - |
-        for s in 128; do
-          install -Dm644 ${s}.png /app/share/icons/hicolor/${s}x${s}/apps/${FLATPAK_ID}.png
+        for s in 16 32 64 128 256 512; do
+          install -Dm644 icon${s}.png /app/share/icons/hicolor/${s}x${s}/apps/${FLATPAK_ID}.png
         done
 
       - install -Dm644 ${FLATPAK_ID}.desktop -t /app/share/applications
@@ -99,4 +103,19 @@ modules:
         path: com.blackmagicdesign.ResolveStudio.metainfo.xml
 
       - type: file
-        path: icons/128.png
+        path: icons/icon16.png
+
+      - type: file
+        path: icons/icon32.png
+
+      - type: file
+        path: icons/icon64.png
+
+      - type: file
+        path: icons/icon128.png
+
+      - type: file
+        path: icons/icon256.png
+
+      - type: file
+        path: icons/icon512.png
