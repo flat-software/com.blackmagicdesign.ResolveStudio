@@ -22,18 +22,18 @@ finish-args:
   - --device=usb
   - --usb=vnd:096e
   # Common media folders.
-  - --filesystem=xdg-desktop
-  - --filesystem=xdg-documents
   - --filesystem=xdg-download
   - --filesystem=xdg-music
   - --filesystem=xdg-pictures
-  - --filesystem=xdg-public-share
   - --filesystem=xdg-videos
+  # Writeable locations.
+  - --persist=xdg-documents
   # Removable media and network shares.
   - --filesystem=/media
   - --filesystem=/run/media
   - --filesystem=/mnt
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
+  - --env=DRI_PRIME=1
 
 modules:
   # Dependencies.
