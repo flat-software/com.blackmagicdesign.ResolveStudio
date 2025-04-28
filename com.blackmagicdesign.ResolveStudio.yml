@@ -86,7 +86,7 @@ modules:
         sha256: 5fb4614834c5a9f990afa977b7d5dcd2675c26529bc09a468e7cd287bbaf5097
         x-checker-data:
           type: json
-          url: http://localhost:5173/version/stable
+          url: http://host.docker.internal:5173/version/stable
           version-query: .url
           url-query: .url
 
