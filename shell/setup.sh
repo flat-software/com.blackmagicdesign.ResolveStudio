@@ -9,7 +9,7 @@ APP_ID="com.blackmagicdesign.ResolveStudio"
 
 echo "Building ${APP_ID}"
 
-./DaVinci_Resolve_*_Linux.run --appimage-extract 2>&1
+./DaVinci_Resolve_*_Linux.run --appimage-extract > /dev/null 2>&1
 rm ./DaVinci_Resolve_*_Linux.run
 find squashfs-root -type f -exec chmod a+r,u+w {} \;
 find squashfs-root -type d -exec chmod a+rx,u+w {} \;
