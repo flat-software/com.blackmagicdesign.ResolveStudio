@@ -28,11 +28,10 @@ jobs:
           echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
 
       - name: Run local server.
+        working-directory: downloadserver
         run: |
-          cd downloadserver
           npm ci
-          npm run start &
-          cd ..
+          RUNNER_TRACKING_ID="" && npm run start &
 
       - uses: docker://ghcr.io/flathub/flatpak-external-data-checker:latest
         env:
