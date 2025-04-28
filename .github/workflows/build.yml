@@ -17,6 +17,9 @@ jobs:
       options: --privileged
 
     steps:
+      - name: Maximize build space
+        uses: ublue-os/remove-unwanted-software@v8
+
       - name: Set dynamic env vars
         run: |
           REPO_NAME="${GITHUB_REPOSITORY##*/}"
@@ -28,11 +31,6 @@ jobs:
         with:
           submodules: true
 
-      - name: NodeJS
-        uses: actions/setup-node@v4
-        with:
-          node-version: 23
-
       - name: Install dependencies
         run: |
           curl https://download.docker.com/linux/static/stable/x86_64/docker-28.1.1.tgz --output ./docker.tgz
@@ -42,6 +40,11 @@ jobs:
           curl -L https://github.com/regclient/regclient/releases/download/v0.8.1/regctl-linux-amd64 > regctl
           chmod 755 regctl
           mv regctl /usr/bin
+
+      - name: NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23
 
       - name: Run local server
         uses: JarvusInnovations/background-action@v1
