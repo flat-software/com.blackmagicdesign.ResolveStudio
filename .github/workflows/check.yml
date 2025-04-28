@@ -28,11 +28,13 @@ jobs:
           echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
 
       - name: Run local server
-        working-directory: downloadserver
-        run: |
-          npm ci
-          npm run start &
-          curl http://localhost:5173/info
+        uses: JarvusInnovations/background-action@v1
+        with:
+          working-directory: downloadserver
+          wait-on: http-get://localhost:5173/info
+          run: |
+            npm ci
+            npm run start
 
       - name: Test local server
         run: curl http://localhost:5173/info
