@@ -81,10 +81,16 @@ jobs:
           build-bundle: false
 
       - name: Clear
-        run: rm -rf .flatpak-builder
+        run: |
+          df -h
+          pwd
+          ls
+          rm -rfv .flatpak-builder
+          rm -rfv build
 
       - name: Build image
         run: |
+          df -h
           flatpak build-bundle ./repo ./image $REPO_NAME stable --oci
 
       - name: Login to registry
