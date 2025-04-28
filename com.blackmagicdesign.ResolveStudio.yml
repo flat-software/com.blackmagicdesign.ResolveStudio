@@ -17,7 +17,7 @@ finish-args:
   - --socket=pulseaudio
   - --socket=wayland
   - --socket=x11
-  - --device=dri
+  - --device=all
   # USB license key.
   - --device=usb
   - --usb=vnd:096e
@@ -27,7 +27,7 @@ finish-args:
   - --filesystem=xdg-pictures
   - --filesystem=xdg-videos
   # Writeable locations.
-  - --persist=xdg-documents
+  - --persist=Documents
   # Removable media and network shares.
   - --filesystem=/media
   - --filesystem=/run/media
