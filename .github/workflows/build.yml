@@ -22,8 +22,6 @@ jobs:
 
     steps:
       - name: Maximize build space
-        env:
-          RUNNER_TOOL_CACHE: ${{ runner.tool_cache }}
         run: |
           echo "Before:"
           df -h
