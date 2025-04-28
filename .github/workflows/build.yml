@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Maximize build space
         uses: ublue-os/remove-unwanted-software@v8
+        with:
+          use-sudo: false
 
       - name: Set dynamic env vars
         run: |
