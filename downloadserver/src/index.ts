@@ -8,6 +8,10 @@ import {Branch} from "./model.ts";
 const app = new Hono();
 app.use(logger());
 
+app.get("/info", c => {
+  return c.text("Server is running!\n");
+});
+
 app.get("/version/:branch", async c => {
   const branch = c.req.param("branch") === "beta" ? Branch.BETA : Branch.STABLE;
   const latestVersion = await getLatestVersion(branch);
