@@ -5,8 +5,6 @@ on:
   push:
     tags:
       - v*
-    branches:
-      - main
 
   # Manual trigger.
   workflow_dispatch:
@@ -50,7 +48,7 @@ jobs:
           tar xzvf docker.tgz
           mv docker/* /usr/bin
 
-          curl -L https://github.com/regclient/regclient/releases/download/v0.8.1/regctl-linux-amd64 > regctl
+          curl -L https://github.com/regclient/regclient/releases/download/v0.8.3/regctl-linux-amd64 > regctl
           chmod 755 regctl
           mv regctl /usr/bin
 

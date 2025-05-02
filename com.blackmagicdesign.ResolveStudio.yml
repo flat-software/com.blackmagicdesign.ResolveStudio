@@ -8,8 +8,6 @@ command: com.blackmagicdesign.ResolveStudio
 tags:
   - proprietary
 separate-locales: false
-build-options:
-  append-path: /usr/lib/sdk/llvm18/bin
 
 finish-args:
   - --share=ipc
@@ -38,6 +36,9 @@ finish-args:
   - --env=__VK_LAYER_NV_optimus=NVIDIA_only
   - --env=__NV_PRIME_RENDER_OFFLOAD=1
   - --env=__GLX_VENDOR_LIBRARY_NAME=nvidia
+
+build-options:
+  append-path: /usr/lib/sdk/llvm18/bin
 
 modules:
   # Dependencies.
