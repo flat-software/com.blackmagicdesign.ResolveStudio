@@ -77,9 +77,9 @@ modules:
           install -Dm644 icon${s}.png /app/share/icons/hicolor/${s}x${s}/apps/${FLATPAK_ID}.png
         done
 
+      - install -Dm755 resolve.sh /app/bin/${FLATPAK_ID}
       - install -Dm644 ${FLATPAK_ID}.desktop -t /app/share/applications
       - install -Dm644 ${FLATPAK_ID}.metainfo.xml -t /app/share/metainfo
-      - install -Dm755 resolve.sh /app/bin/${FLATPAK_ID}
 
     sources:
       - type: archive
