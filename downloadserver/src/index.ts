@@ -20,7 +20,7 @@ app.get("/version/:branch", async c => {
   }
 
   return c.json({
-    url: `http://localhost:5173/download/${latestVersion?.downloadId}`,
+    url: `http://localhost:5173/download/${latestVersion.downloadId}`,
   });
 });
 
