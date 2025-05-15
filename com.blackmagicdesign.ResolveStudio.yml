@@ -88,7 +88,7 @@ modules:
         sha256: 5fb4614834c5a9f990afa977b7d5dcd2675c26529bc09a468e7cd287bbaf5097
         x-checker-data:
           type: json
-          url: http://172.17.0.1:5173/version/stable
+          url: http://localhost:5173/version/stable
           version-query: .url
           url-query: .url
 
