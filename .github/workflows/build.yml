@@ -26,8 +26,11 @@ jobs:
           rm -rf /hostfs/usr/share/dotnet
           rm -rf /hostfs/usr/local/lib/android
           rm -rf /hostfs/opt/ghc
+          rm -rf /hostfs/opt/cabal
+          rm -rf /hostfs/opt/swift
           rm -rf /hostfs/usr/local/.ghcup
           rm -rf /hostfs/opt/hostedtoolcache/CodeQL
+          rm -rf /hostfs/opt/hostedtoolcache/node
           echo "After:"
           df -h
 
