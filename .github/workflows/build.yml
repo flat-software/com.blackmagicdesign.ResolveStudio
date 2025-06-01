@@ -28,9 +28,20 @@ jobs:
           rm -rf /hostfs/opt/ghc
           rm -rf /hostfs/opt/cabal
           rm -rf /hostfs/opt/swift
+          rm -rf /hostfs/opt/pyenv
           rm -rf /hostfs/usr/local/.ghcup
           rm -rf /hostfs/opt/hostedtoolcache/CodeQL
           rm -rf /hostfs/opt/hostedtoolcache/node
+          rm -rf /hostfs/opt/hostedtoolcache/go
+          rm -rf /hostfs/opt/hostedtoolcache/php
+          rm -rf /hostfs/opt/hostedtoolcache/Ruby
+          rm -rf /hostfs/opt/hostedtoolcache/Python
+          rm -rf /hostfs/usr/share/doc \
+            /hostfs/usr/share/man \
+            /hostfs/usr/share/info \
+            /hostfs/usr/share/lintian \
+            /hostfs/usr/share/locale/* \
+            /hostfs/usr/share/locale-langpack/*
           echo "After:"
           df -h
 
