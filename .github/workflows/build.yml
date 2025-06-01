@@ -36,6 +36,7 @@ jobs:
           rm -rf /hostfs/opt/hostedtoolcache/php
           rm -rf /hostfs/opt/hostedtoolcache/Ruby
           rm -rf /hostfs/opt/hostedtoolcache/Python
+          rm -rf /hostfs/mnt/swapfile
           rm -rf /hostfs/usr/share/doc \
             /hostfs/usr/share/man \
             /hostfs/usr/share/info \
