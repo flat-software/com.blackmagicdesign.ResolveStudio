@@ -95,14 +95,6 @@ jobs:
           build-dir: /hostfs/mnt/flatpak_app
           state-dir: /hostfs/mnt/flatpak_state
 
-      - name: Clear
-        run: |
-          df -h
-          pwd
-          ls
-          rm -rf .flatpak-builder
-          rm -rf build
-
       - name: Build image
         run: |
           df -h
