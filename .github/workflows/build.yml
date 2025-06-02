@@ -84,13 +84,14 @@ jobs:
         run: curl http://localhost:5173/info
 
       - name: Build
-        uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        uses: flat-software/flatpak-github-actions/flatpak-builder@3aa8d090dd729af9f4cbc7041f323c5128e6d936
         with:
           branch: stable
           manifest-path: ${{ env.REPO_NAME }}.yml
           cache: false
           restore-cache: false
           build-bundle: false
+          repository-path: /hostfs/mnt/repo
 
       - name: Clear
         run: |
