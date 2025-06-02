@@ -84,7 +84,7 @@ jobs:
         run: curl http://localhost:5173/info
 
       - name: Build
-        uses: flat-software/flatpak-github-actions/flatpak-builder@3aa8d090dd729af9f4cbc7041f323c5128e6d936
+        uses: flat-software/flatpak-github-actions/flatpak-builder@758ca64ba86604e062021cef4274c1317477360d
         with:
           branch: stable
           manifest-path: ${{ env.REPO_NAME }}.yml
