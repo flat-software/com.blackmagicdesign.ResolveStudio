@@ -84,7 +84,7 @@ jobs:
         run: curl http://localhost:5173/info
 
       - name: Build
-        uses: flat-software/flatpak-github-actions/flatpak-builder@738ed4e5b3a0c6440d18319d31173af92c053f99
+        uses: flat-software/flatpak-github-actions/flatpak-builder@ec278db8426760cd515fa3bdca50f95fae690b17
         with:
           branch: stable
           manifest-path: ${{ env.REPO_NAME }}.yml
@@ -93,6 +93,7 @@ jobs:
           build-bundle: false
           repository-path: /hostfs/mnt/repo
           build-dir: /hostfs/mnt/flatpak_app
+          state-dir: /hostfs/mnt/flatpak_state
 
       - name: Clear
         run: |
