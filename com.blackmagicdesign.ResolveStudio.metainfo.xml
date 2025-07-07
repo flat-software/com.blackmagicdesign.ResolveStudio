@@ -68,6 +68,34 @@
     <display_length compare="ge">768</display_length>
   </requires>
   <releases>
+    <release version="20.0.1" date="2025-06-30">
+      <description>
+        <p>The following features have been added or updated.</p>
+        <ul>
+          <li>Support for Blackmagic RAW SDK 4.6.</li>
+          <li>Addressed incorrect media pool clip sorting when added to timeline.</li>
+          <li>Addressed voice over issues with multi mono configuration enabled.</li>
+          <li>Addressed Music Editor not retaining settings on reload.</li>
+          <li>Addressed beat marker display when adjusting Music Editor.</li>
+          <li>Audio Assistant no longer applies fade outs at the end of the mix.</li>
+          <li>Improved IntelliScript alignment of script and transcribe differences.</li>
+          <li>Addressed issue loading linked audio clips in media audio player.</li>
+          <li>Addressed occasional speed editor issue adding smooth cut.</li>
+          <li>Addressed incorrect subtitle animation when appending words.</li>
+          <li>Addressed copied Fusion nodes ignoring process layer settings.</li>
+          <li>Addressed refresh issue with object removal when switching comps.</li>
+          <li>Addressed multiple OpenColorIO issues in the Fusion viewer.</li>
+          <li>OCIO FX now allows filtering of color spaces.</li>
+          <li>Improved node cache retention for color changes in other layers.</li>
+          <li>Addressed magic mask cache reset in multiple scenarios.</li>
+          <li>Addressed incorrect thumbnails for ACES 2.0 timelines.</li>
+          <li>Improved handling of packet loss with remote monitoring.</li>
+          <li>Addressed issue consolidating BRAW spilled recordings.</li>
+          <li>Deleting projects now reliably removes project cache.</li>
+          <li>General performance and stability improvements.</li>
+        </ul>
+      </description>
+    </release>
     <release version="20.0.0" date="2025-05-27">
       <description>
         <p>The following features have been added or updated.</p>
