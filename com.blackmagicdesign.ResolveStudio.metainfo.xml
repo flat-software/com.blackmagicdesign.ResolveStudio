@@ -68,8 +68,141 @@
     <display_length compare="ge">768</display_length>
   </requires>
   <releases>
-    <release version="http://localhost:5173/download/2addc9e5b2ab4627a1be8cfbf19d9f2c" date="2025-08-06">
-      <description></description>
+    <release version="20.1.0" date="2025-08-06">
+      <description>
+        <p>The following features have been added or updated.</p>
+
+        <p>
+          <strong>Key Features</strong>
+        </p>
+        <ul>
+          <li>Apple Vision Pro spatial and immersive video workflows in macOS.</li>
+          <li>Direct monitoring of immersive content in Apple Vision Pro.</li>
+          <li>Support for Apple Spatial Audio Format.</li>
+        </ul>
+
+        <p>
+          <strong>Cut and Edit Page</strong>
+        </p>
+        <ul>
+          <li>Improved easing behavior for multiple keyframes.</li>
+          <li>More consistent easing for curves, keyframes and inspector controls.</li>
+          <li>Improved curve editor for active curves, ease, locked parameters.</li>
+          <li>Ability to adjust curves from the timeline keyframes and curves tray.</li>
+          <li>Keyframes are now displayed beyond clip edit points.</li>
+          <li>Ability to set a shortcut to switch between curve and keyframe views.</li>
+          <li>Curves option to disable auto zoom graph height for custom zoom.</li>
+          <li>Support for built in MultiText character level styling.</li>
+          <li>Support for MultiText indent, align and paragraph level styling.</li>
+          <li>Ability to import CSV files as column-aligned MultiText text boxes.</li>
+          <li>Additional smart reframe mode to affect pan only, tilt only or both.</li>
+          <li>Support for custom guides and snapping in the timeline viewer.</li>
+          <li>Ability to toggle extents for selected safe area overlays.</li>
+          <li>Ability to create subclip from edit timeline in out range.</li>
+          <li>Support for find in media pool for USD based geometry clips.</li>
+          <li>Options to sync media pool audio using in, out and marker.</li>
+          <li>Ability to sync audio for stereoscopic 3D videos.</li>
+          <li>Menu action to move playhead to mouse pointer using the C key.</li>
+          <li>Menu actions for full extent, detailed and custom zoom for timeline.</li>
+          <li>Timeline tab action to load to source viewer.</li>
+          <li>Configurable actions to explicitly enable or disable clip.</li>
+          <li>Audio and video only insert controls in the source viewer.</li>
+          <li>Improved right to left language handling in transcriptions.</li>
+          <li>Ability to view transcriptions for clips on the source timeline.</li>
+        </ul>
+
+        <p>
+          <strong>Fusion Page</strong>
+        </p>
+        <ul>
+          <li>Support for new immersive option in the viewer 360 Views menu.</li>
+          <li>Support for new immersive patcher tool.</li>
+          <li>Support for Magic Mask v2 in Fusion.</li>
+          <li>Support for caching deep composites to disk.</li>
+          <li>Option to downscale clip compositions to timeline resolution.</li>
+          <li>Improved DoD and RoI support for deep image compositing tools.</li>
+          <li>Improvements for USD Renderer for overscan.</li>
+          <li>Edit individual tool controls from the inspector context menu.</li>
+          <li>Improved shape duplicate tool with style, jitter and aligned rotations.</li>
+          <li>Support for swizzler to create alpha only multi layer outputs.</li>
+          <li>Support for swizzler background channels.</li>
+          <li>Support for regular expression based selection in Cryptomatte.</li>
+        </ul>
+
+        <p>
+          <strong>Color Page</strong>
+        </p>
+        <ul>
+          <li>Improved color viewer safe area display selection.</li>
+          <li>Ability to switch timeline resolution on the fly from the color viewer.</li>
+          <li>Improved cache retention for copied versions and timelines.</li>
+          <li>Improved magic mask retention for copied versions and timelines.</li>
+          <li>DCTL Support for ACES 2.0 Core.</li>
+        </ul>
+
+        <p>
+          <strong>Resolve FX</strong>
+        </p>
+        <ul>
+          <li>New ColorTone Diffuser emulates light based lens filters.</li>
+          <li>Natural and strong split tone modes in Film Look Creator.</li>
+          <li>New Split Tone with additional controls.</li>
+          <li>Separate RGB sliders and shimmer controls in light rays.</li>
+          <li>Secondary glow ability in glow.</li>
+          <li>New atmosphere controls in light rays and glow.</li>
+          <li>Ability to regrain skin smoothening areas in face refinement.</li>
+        </ul>
+
+        <p>
+          <strong>Fairlight Page</strong>
+        </p>
+        <ul>
+          <li>Support for half speed timeline playback.</li>
+          <li>Action to enable focus mode using the W key.</li>
+          <li>Ability to record in 32-bit floating point.</li>
+          <li>Audio waveforms are now accurate when recording.</li>
+          <li>Clip context menu action to regenerate waveform profiles.</li>
+          <li>Faster Audio Assistant analysis with short clips improvements.</li>
+          <li>Audio Assistant option to view the full UI of underlying effects.</li>
+          <li>Dialogue matcher ambience controls and improved wet dry matches.</li>
+          <li>Support for deleting busses from track headers and index.</li>
+          <li>Shift option command for fine mouse based scrubbing zoomed out.</li>
+          <li>Shift and command click to add to selection in mixer.</li>
+        </ul>
+
+        <p>
+          <strong>Codec and IO</strong>
+        </p>
+        <ul>
+          <li>Support for Blackmagic RAW 5.0 SDK.</li>
+          <li>Faster decodes for URSA Cine 12K LF and URSA Cine 17K 65 clips.</li>
+          <li>Support for decoding and encoding webp images.</li>
+          <li>12-bit support and custom quality controls for DNx.</li>
+          <li>Support for encoding H.264 and H.265 in MXF Op1A clips.</li>
+          <li>Support for decoding Samsung APV clips.</li>
+          <li>Improved native Windows H.264 and H.265 bit rate controls.</li>
+          <li>New deliver preset for Tencent video uploads.</li>
+        </ul>
+
+        <p>
+          <strong>General</strong>
+        </p>
+        <ul>
+          <li>Improved layouts for small, dual screen and vertical video views.</li>
+          <li>Improved per-system bin layout retention for multi-user projects.</li>
+          <li>Use shift space to display the effects search dialog in all pages.</li>
+          <li>Ability to search for effects in both English and application language.</li>
+          <li>Clone tool support for xxhash64 checksums.</li>
+          <li>DRT timeline exports now include Fusion media references.</li>
+          <li>Viewers now reflect updates to still images by other applications.</li>
+          <li>Concurrent viewer overlays for DeckLink and remote monitoring.</li>
+          <li>Scripting API support for voice isolation for audio clips and tracks.</li>
+          <li>Support for Electron 36.3.2 for workflow integrations.</li>
+          <li>New Javascript promises API for asynchronous workflow operations.</li>
+          <li>Support for audio only TS growing files.</li>
+          <li>General performance and stability improvements.</li>
+        </ul>
+      </description>
     </release>
     <release version="20.0.1" date="2025-06-30">
       <description>
