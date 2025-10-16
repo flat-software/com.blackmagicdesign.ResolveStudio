@@ -68,6 +68,9 @@
     <display_length compare="ge">768</display_length>
   </requires>
   <releases>
+    <release version="http://localhost:5173/download/8bb647adca65489fa74b841e74f9ddb9" date="2025-10-15">
+      <description></description>
+    </release>
     <release version="20.1.0" date="2025-08-06">
       <description>
         <p>The following features have been added or updated.</p>
