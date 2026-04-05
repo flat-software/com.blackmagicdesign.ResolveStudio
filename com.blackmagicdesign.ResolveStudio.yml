@@ -84,8 +84,8 @@ modules:
     sources:
       - type: archive
         dest-filename: resolve.zip
-        url: http://localhost:5173/download/2addc9e5b2ab4627a1be8cfbf19d9f2c
-        sha256: c6806a0bbcb243dc8a2a2bbdec4380c48a65e175a165aacc21ad43e00dab0935
+        url: http://localhost:5173/download/19d7b1f6daf94f7f8203c68f17237b30
+        sha256: 5fbd904996158b907bc755511580aca59f6374977fac956f2eccd86c0dbe3bf8
         x-checker-data:
           type: json
           url: http://localhost:5173/version/stable
