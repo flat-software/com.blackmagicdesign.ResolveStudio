@@ -1,6 +1,10 @@
 export BMD_RESOLVE_CONFIG_DIR="${XDG_CONFIG_HOME}"
-export BMD_RESOLVE_SUPPORT_DIR="${XDG_DATA_HOME}"
 export BMD_RESOLVE_LICENSE_DIR="${XDG_DATA_HOME}/license"
 export BMD_RESOLVE_LOGS_DIR="${XDG_DATA_HOME}/logs"
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
+# Pre-create directories Resolve expects.
+mkdir -p "${XDG_DATA_HOME}/logs/LogArchive"
+mkdir -p "${XDG_DATA_HOME}/license"
+
 exec /app/bin/resolve "$@"

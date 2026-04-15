@@ -30,7 +30,10 @@ finish-args:
   - --filesystem=/run/media
   - --filesystem=/mnt
   # Writeable locations.
-  - --persist=Documents
+  - --persist=.local/share/DaVinciResolve
+  - --persist=Documents/BlackmagicDesign
+  - --persist=Videos/CacheClip
+  - --persist=Videos/.gallery
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
   - --env=DRI_PRIME=1
   - --env=__VK_LAYER_NV_optimus=NVIDIA_only
