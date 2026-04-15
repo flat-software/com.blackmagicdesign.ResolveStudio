@@ -68,6 +68,174 @@
     <display_length compare="ge">768</display_length>
   </requires>
   <releases>
+    <release version="21.0b1" date="2026-04-13" type="development">
+      <description>
+        <p>The following features have been added or updated.</p>
+
+        <p>
+          <strong>Photo Page</strong>
+        </p>
+        <ul>
+          <li>New photo image editing now fully integrated within DaVinci Resolve.</li>
+          <li>Image library with tagging, favorites, ratings and album collections.</li>
+          <li>Albums let you build, manage and tweak photos at source resolution.</li>
+          <li>Native RAW support for major camera formats.</li>
+          <li>Import media from Apple Photos on macOS.</li>
+          <li>Import Lightroom Catalog files into the media pool.</li>
+          <li>Use Resolve multi-user collaboration and Blackmagic Cloud syncing.</li>
+          <li>Support for DaVinci color control toolset and grading panels.</li>
+          <li>Looks, LUTs, ResolveFX and OpenFX for your images.</li>
+          <li>GPU accelerated batch exports and conversions.</li>
+        </ul>
+
+        <p>
+          <strong>Cut and Edit Page</strong>
+        </p>
+        <ul>
+          <li>Keyframing provides powerful retime controls with 4-point bezier.</li>
+          <li>Keyframe and add curves for multiple selected clips.</li>
+          <li>Keyframing ease options, loop, ping pong, reverse and stretch.</li>
+          <li>Keyframe Fusion effects, generators and text along with edit effects.</li>
+          <li>Subframe support for keyframing and markers.</li>
+          <li>Native support for OGraf HTML graphics.</li>
+          <li>Native support for Lottie animations.</li>
+          <li>Resolve FX Picture in Picture effect.</li>
+          <li>Font browser window for text and subtitle elements.</li>
+          <li>Preview fonts during font selection as a preference.</li>
+          <li>Spell checking for all text elements.</li>
+          <li>Emoji and color fonts for Text+ and MultiText.</li>
+          <li>Multicam angle previews in clean feed and video outputs.</li>
+          <li>Multicams can include all audio tracks for each angle.</li>
+          <li>Multicams can use full clip extents on creation and during sync.</li>
+          <li>Replay control to limit view to the last 5 minutes of recorded media.</li>
+          <li>Replay editor allows timeline selection from search dial.</li>
+          <li>Replay now allows independent start and end stingers.</li>
+          <li>Replay title palette allows up to 6 favorite titles.</li>
+          <li>Mono audio now plays on left and right channels of stereo tracks.</li>
+          <li>Improved waveforms, markers and fades for short edit tracks.</li>
+          <li>Source timelines support auto track selectors.</li>
+          <li>DRT timeline import supports link and conform options.</li>
+          <li>Compare timelines with timeline backup snapshots.</li>
+          <li>Subtitle inspector now supports search and replace.</li>
+          <li>Edit page lets you show or hide tracks from the index.</li>
+          <li>Support for editing EDL clip name in the edit index.</li>
+          <li>Affinity .af file support with group and individual layer control.</li>
+          <li>Edit page timecode options for frames, subframes or audio samples.</li>
+          <li>Duration timecode option to show duration for clip selection.</li>
+          <li>Improved timeline view options with presets and clip name option.</li>
+          <li>View remote color versions in the source viewer.</li>
+          <li>Local color grade versions use remote grades on new clip creation.</li>
+          <li>Timeline menu action to select transitions in the cut and edit page.</li>
+          <li>Paste and remove attributes for clip color, markers and flags.</li>
+          <li>Paste and remove attributes to retain image position under crop.</li>
+          <li>Switch audio channels for multi-clip selections via the context menu.</li>
+          <li>Edit page source tape includes multicam clips.</li>
+          <li>Match frame finds source media for nested clips and multicams.</li>
+          <li>Resolve FX Video Collage with separate tile fill and border controls.</li>
+          <li>Subtitle support for fade in and out.</li>
+        </ul>
+
+        <p>
+          <strong>Media Pool and Metadata</strong>
+        </p>
+        <ul>
+          <li>Support for tabbed layouts.</li>
+          <li>Thumbnail, list and metadata views can be set for each bin.</li>
+          <li>Star rating support for clips.</li>
+          <li>Cut page supports smart bin views.</li>
+          <li>Export media bin thumbnails as a PDF.</li>
+          <li>Automatic smart bin and clip filter for offline clips.</li>
+          <li>Custom metadata for smart bins, filters, data burn and naming tags.</li>
+          <li>Customize your project poster frames.</li>
+          <li>Show input colorspace and gamma in metadata view.</li>
+          <li>Transcription column support in list view.</li>
+          <li>Custom keyboard shortcuts to set thumbnail, list or metadata views.</li>
+          <li>Ability to reset audio clip attributes to the original configuration.</li>
+        </ul>
+
+        <p>
+          <strong>Color Page</strong>
+        </p>
+        <ul>
+          <li>Clip groups now support grade versions.</li>
+          <li>Node graphs can now be viewed as a layer list.</li>
+          <li>Node stacks now support up to 8 layers.</li>
+          <li>Customizable HDR and nit scopes ranges.</li>
+          <li>ACES AMF improvements, with transform name and custom folders.</li>
+          <li>Adobe RGB colorspace and gamma support.</li>
+          <li>OpenFX 1.5 color management APIs for colorspace aware effects.</li>
+          <li>Advanced panel controls for 2.39 and 2.4 safe area aspect ratios.</li>
+          <li>Multi-user projects can bypass color management on the color page.</li>
+          <li>Pasting tracking data between power windows retains original shape.</li>
+        </ul>
+
+        <p>
+          <strong>Fairlight Page</strong>
+        </p>
+        <ul>
+          <li>Folder tracks allow a group of tracks to be folded down or expanded.</li>
+          <li>Go to mouse pointer support using the C key.</li>
+        </ul>
+
+        <p>
+          <strong>Fusion Page</strong>
+        </p>
+        <ul>
+          <li>Support for Krokodove motion graphics effects.</li>
+          <li>Over 100 new motion graphics effects and tools.</li>
+          <li>New Macro Editor with inspector view and publishing to edit effects.</li>
+          <li>Fusion animation can be creatively driven by Fairlight audio.</li>
+          <li>Native support for OGraf HTML graphics.</li>
+          <li>Native support for Lottie animations.</li>
+          <li>Text+ and MultiText support spell checking.</li>
+          <li>Font improvements include emoji, color fonts and more.</li>
+          <li>Improved MultiText for position, pivot, alignment and CSV import.</li>
+          <li>Support for USD SDK 25.11 with Hydra 2.0 API for Storm renderer.</li>
+          <li>USD support for 3D matte objects and textures.</li>
+          <li>Support for USD Texture Projector and Catcher.</li>
+          <li>Global in-out controls for USD Loader.</li>
+          <li>Native support for creating Relief Maps.</li>
+          <li>Change inspector properties for multi-tool selections.</li>
+          <li>Change common inspector values in all selected multi-tool layers.</li>
+          <li>User defined metadata variables in paths, expressions and scripts.</li>
+          <li>Lens Distort offers checkerboard calibration and GPU acceleration.</li>
+          <li>Guides and rulers persistence, presets and improved snapping.</li>
+          <li>MediaIn nodes show clip name.</li>
+          <li>Open keyframes and spline as a new window.</li>
+        </ul>
+
+        <p>
+          <strong>Codecs and I/O</strong>
+        </p>
+        <ul>
+          <li>Enhanced MXF growing file support for broadcast workflows.</li>
+          <li>MXF OP1A support for MPEG2 bitrate and other encode options.</li>
+          <li>Canon CR3 RAW decode support.</li>
+          <li>Fujifilm RAF RAW decode support.</li>
+          <li>Apple ProRAW decode support.</li>
+          <li>Support for compressed ARW from Sony A7V and newer cameras.</li>
+          <li>Improved Nikon NEF RAW decode support.</li>
+          <li>HDR decode support for HEIC, JPEG, PNG and TIFF images.</li>
+          <li>HEIC encode support on macOS and Windows.</li>
+          <li>HDR encode support for HEIC, JPEG, PNG and TIFF images.</li>
+          <li>Improved EXIF metadata support for stills formats.</li>
+          <li>Intel QuickSync AV1 4:4:4 decode and encode support.</li>
+          <li>Windows ARM H.265 10-bit 4:2:2 decode support.</li>
+          <li>Per render job option to override RCM or ACES outputs.</li>
+        </ul>
+
+        <p>
+          <strong>General Improvements</strong>
+        </p>
+        <ul>
+          <li>Powerful, expanded and flexible data burn-in window.</li>
+          <li>Preferences and project settings can now be searched.</li>
+          <li>Multi-user projects support dynamic project switching.</li>
+          <li>Up to 3x faster file sync performance to Blackmagic Cloud.</li>
+          <li>General performance and stability improvements.</li>
+        </ul>
+      </description>
+    </release>
     <release version="20.3.2" date="2026-02-12">
       <description>
         <p>The following features have been added or updated.</p>
