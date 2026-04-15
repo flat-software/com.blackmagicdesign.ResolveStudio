@@ -86,7 +86,7 @@ jobs:
       - name: Build
         uses: flat-software/flatpak-github-actions/flatpak-builder@ec278db8426760cd515fa3bdca50f95fae690b17
         with:
-          branch: stable
+          branch: beta
           manifest-path: ${{ env.REPO_NAME }}.yml
           cache: false
           restore-cache: false
@@ -98,7 +98,7 @@ jobs:
       - name: Build image
         run: |
           df -h
-          flatpak build-bundle /hostfs/mnt/repo ./image $REPO_NAME stable --oci
+          flatpak build-bundle /hostfs/mnt/repo ./image $REPO_NAME beta --oci
 
       - name: Login to registry
         uses: docker/login-action@v3
@@ -110,17 +110,14 @@ jobs:
       - name: Push
         run: |
           echo "Update index."
-          jq '.manifests[0].annotations["org.opencontainers.image.ref.name"] = "repo/$REPO_NAME_LOWER:stable"' ./image/index.json > tmp.json
+          jq '.manifests[0].annotations["org.opencontainers.image.ref.name"] = "repo/$REPO_NAME_LOWER:beta"' ./image/index.json > tmp.json
           mv tmp.json ./image/index.json
 
           echo "Get variables."
           version=$(xmllint --xpath 'string(//release[1]/@version)' $REPO_NAME.metainfo.xml)
 
-          echo "Copy latest."
-          regctl image copy ocidir://image:stable "artifacts.flat.software/flatpaks/$REPO_NAME_LOWER:latest" -v debug
-
-          echo "Copy stable."
-          regctl image copy ocidir://image:stable "artifacts.flat.software/flatpaks/$REPO_NAME_LOWER:stable"
+          echo "Copy beta."
+          regctl image copy ocidir://image:beta "artifacts.flat.software/flatpaks/$REPO_NAME_LOWER:beta" -v debug
 
           echo "Copy $version."
-          regctl image copy ocidir://image:stable "artifacts.flat.software/flatpaks/$REPO_NAME_LOWER:$version"
+          regctl image copy ocidir://image:beta "artifacts.flat.software/flatpaks/$REPO_NAME_LOWER:$version"
