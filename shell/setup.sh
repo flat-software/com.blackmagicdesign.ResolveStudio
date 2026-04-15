@@ -48,6 +48,14 @@ shopt -s dotglob
 mv squashfs-root/* ${PREFIX}/
 shopt -u dotglob
 
+# Ensure directories that Resolve tries to create at runtime exist,
+# since /app is read-only in flatpak.
+mkdir -p "${PREFIX}/Apple Immersive/Calibration"
+mkdir -p ${PREFIX}/Extras
+mkdir -p ${PREFIX}/easyDCP
+mkdir -p ${PREFIX}/Fairlight
+mkdir -p ${PREFIX}/IOPlugins
+
 # Quiet some errors.
 mkdir -p ${PREFIX}/bin/BlackmagicRawAPI/
 ln -s ../libs/libBlackmagicRawAPI.so ${PREFIX}/bin/libBlackmagicRawAPI.so
