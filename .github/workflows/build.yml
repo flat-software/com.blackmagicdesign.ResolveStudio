@@ -126,6 +126,6 @@ jobs:
           regctl image copy ocidir://image:stable "artifacts.flat.software/flatpaks/$REPO_NAME_LOWER:$version"
 
       - name: Trigger index rebuild
-        run: gh workflow run deploy --repo flat-software/website
+        run: gh workflow run deploy.yml --repo flat-software/website --ref main
         env:
           GH_TOKEN: ${{ secrets.REGISTRY_DEPLOY_TOKEN }}
