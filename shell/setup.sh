@@ -56,7 +56,9 @@ mkdir -p ${PREFIX}/easyDCP
 mkdir -p ${PREFIX}/Fairlight
 mkdir -p ${PREFIX}/IOPlugins
 
-# Quiet some errors.
-mkdir -p ${PREFIX}/bin/BlackmagicRawAPI/
+# The BRAW SDK looks for its decoder backends (CUDA, OpenCL, AVX) in a
+# BlackmagicRawAPI/ directory next to the resolve binary. Without them,
+# opening .braw files fails with "codec DUMMY is not supported".
+# Reuse the full set of decoders bundled with BlackmagicRAWPlayer.
 ln -s ../libs/libBlackmagicRawAPI.so ${PREFIX}/bin/libBlackmagicRawAPI.so
-ln -s ../../libs/libBlackmagicRawAPI.so ${PREFIX}/bin/BlackmagicRawAPI/libBlackmagicRawAPI.so
+ln -s ../BlackmagicRAWPlayer/BlackmagicRawAPI ${PREFIX}/bin/BlackmagicRawAPI
