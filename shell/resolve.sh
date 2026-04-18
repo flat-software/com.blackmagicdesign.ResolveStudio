@@ -7,4 +7,17 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 mkdir -p "${XDG_DATA_HOME}/logs/LogArchive"
 mkdir -p "${XDG_DATA_HOME}/license"
 
+# The flatpak NVIDIA GL extension provides versioned .so.1 symlinks but
+# not the unversioned .so symlinks that Resolve needs to dlopen NVENC
+# libraries for H.264/H.265 encoding in the Deliver page.
+NVIDIA_SYMLINK_DIR="${XDG_CACHE_HOME}/nvidia-symlinks"
+mkdir -p "${NVIDIA_SYMLINK_DIR}"
+for lib in libnvidia-encode libnvcuvid libnvidia-opticalflow; do
+  REAL_LIB=$(ldconfig -p | grep "${lib}.so.1 " | awk '{print $NF}')
+  if [ -n "${REAL_LIB}" ]; then
+    ln -sf "${REAL_LIB}" "${NVIDIA_SYMLINK_DIR}/${lib}.so"
+  fi
+done
+export LD_LIBRARY_PATH="${NVIDIA_SYMLINK_DIR}:${LD_LIBRARY_PATH}"
+
 exec /app/bin/resolve "$@"
