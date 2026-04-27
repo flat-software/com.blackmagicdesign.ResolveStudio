@@ -51,10 +51,15 @@ shopt -u dotglob
 # Ensure directories that Resolve tries to create at runtime exist,
 # since /app is read-only in flatpak.
 mkdir -p "${PREFIX}/Apple Immersive/Calibration"
-mkdir -p ${PREFIX}/Extras
 mkdir -p ${PREFIX}/easyDCP
 mkdir -p ${PREFIX}/Fairlight
 mkdir -p ${PREFIX}/IOPlugins
+
+# The download manager writes downloaded packages to ${PREFIX}/Extras, but
+# /app is read-only in flatpak. Symlink it to a sandbox-internal path
+# whose target resolve.sh repoints to a persistent per-user location at
+# every launch.
+ln -s /var/tmp/resolve-extras ${PREFIX}/Extras
 
 # The BRAW SDK looks for its decoder backends (CUDA, OpenCL, AVX) in a
 # BlackmagicRawAPI/ directory next to the resolve binary. Without them,

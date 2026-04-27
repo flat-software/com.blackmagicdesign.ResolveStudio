@@ -20,4 +20,10 @@ for lib in libnvidia-encode libnvcuvid libnvidia-opticalflow; do
 done
 export LD_LIBRARY_PATH="${NVIDIA_SYMLINK_DIR}:${LD_LIBRARY_PATH}"
 
+# Bridge /app/Extras (build-time symlink to /var/tmp/resolve-extras) to a
+# persistent per-user location so optional component downloads survive
+# across launches.
+mkdir -p "${XDG_DATA_HOME}/Extras"
+ln -sfn "${XDG_DATA_HOME}/Extras" /var/tmp/resolve-extras
+
 exec /app/bin/resolve "$@"
