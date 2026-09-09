@@ -1,6 +1,6 @@
 app-id: com.blackmagicdesign.ResolveStudio
 runtime: org.freedesktop.Platform
-runtime-version: "24.08"
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm18
@@ -87,8 +87,8 @@ modules:
     sources:
       - type: archive
         dest-filename: resolve.zip
-        url: http://localhost:5173/download/19d7b1f6daf94f7f8203c68f17237b30
-        sha256: 5fbd904996158b907bc755511580aca59f6374977fac956f2eccd86c0dbe3bf8
+        url: http://localhost:5173/download/b9955d7104aa405bb491d924fd734a14
+        sha256: 7968105cb1cc855892eaea20033fc457a26a37e6492b5d7be0815c975cdc5350
         x-checker-data:
           type: json
           url: http://localhost:5173/version/stable
